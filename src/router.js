@@ -5,6 +5,7 @@ import Social from './Social.vue'
 import Play from './components/Play.vue'
 import Vue from "vue";
 import VueRouter from 'vue-router'
+import Login from "./Login.vue";
 
 Vue.use(VueRouter);
 const router = new VueRouter({
@@ -21,7 +22,8 @@ const router = new VueRouter({
                 {path: 'social', name: 'social', component: Social}
             ]
         },
-        {path: 'play', name: 'play', component: Play}
+        {path: '/login', name: 'login', component: Login},
+        {path: '/play', name: 'play', component: Play}
     ]
 });
 export default router

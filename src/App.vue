@@ -25,13 +25,21 @@
 </template>
 
 <script>
+import {getLocalStorage} from "./utils/localStorage";
 
 export default {
   name: 'App',
   data () {
     return {
-      //
+      user: ''
     }
+  },
+  created() {
+    this.user = getLocalStorage('user');
+    if(!this.user) {
+      this.$router.push('login');
+    }
+
   }
 }
 </script>
