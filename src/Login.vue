@@ -23,6 +23,8 @@
 </template>
 
 <script>
+    import {setLocalStorage} from "./utils/localStorage";
+
     export default {
         name: "Login",
         data: () => ({
@@ -36,9 +38,12 @@
         },
         methods: {
             login() {
-                this.phone;
-                this.password;
-                this.form;
+                this.$http.get("api/login/cellphone?phone=" + this.phone +"&password=" + this.password).then((data) => {
+                    if(data.status == 200) {
+                        setLocalStorage("loginStatus", true);
+                        this.$router.push('/home');
+                    }
+                })
             }
         }
     }

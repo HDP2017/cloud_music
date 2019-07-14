@@ -35,7 +35,7 @@ export default {
     }
   },
   created() {
-    this.user = getLocalStorage('user');
+    this.user = getLocalStorage('loginStatus');
     if(!this.user) {
       this.$router.push('login');
     }
